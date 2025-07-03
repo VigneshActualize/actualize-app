@@ -4,7 +4,7 @@ const Footer = () => (
   <footer className="footer">
     <div className="footer-container">
       <div className="footer-one">
-        <a href="/" className="footer-logo-link">
+        <a href="/" className="footer-logo-link" style={{ color: "#fff" }}>
           ACTUALIZE
         </a>
         <p className="footer-address">
@@ -60,29 +60,27 @@ const Footer = () => (
         </div>
       </div>
       <ul className="footer-two">
-        <a href="/" className="footer-logo-link" aria-label="Actualize Home">
+        <h1 className="footer-logo-link">
           Industries
-        </a>
+        </h1>
         <li className="footer-content">Heavy Industries</li>
         <li className="footer-content">Industrial Engineering</li>
         <li className="footer-content">Automotive Engineering</li>
         <li className="footer-content">Process Engineering</li>
       </ul>
-
       <ul className="footer-two">
-        <a href="/" className="footer-logo-link" aria-label="Actualize Home">
+        <h1 className="footer-logo-link">
           Services
-        </a>
+        </h1>
         <li className="footer-content">Engineering Services</li>
         <li className="footer-content">Digital Transformation</li>
         <li className="footer-content">Staffing and Consulting</li>
         <li>d</li>
       </ul>
-
       <ul className="footer-two">
-        <a href="/" className="footer-logo-link" aria-label="Actualize Home">
+        <h1 className="footer-logo-link">
           Locations
-        </a>
+        </h1>
         <li className="footer-content">Ohio, USA</li>
         <li className="footer-content">Munich, Germeny</li>
         <li className="footer-content">Bengaluru</li>
