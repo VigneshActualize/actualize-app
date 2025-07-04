@@ -17,7 +17,6 @@ const Header = () => {
             <a className="nav-anchor" href="#">
               About
             </a>
-            <span className="nav-number"></span>
           </li>
 
           <li className="nav-list-item">
@@ -32,11 +31,10 @@ const Header = () => {
               >
                 <path
                   d="M13.5321 2.42687L11.9991 0.921875L6.88906 5.99687L1.81406 0.921874L0.274062 2.42687L5.38406 7.53687L6.88906 9.07687L8.42906 7.53688L13.5391 2.42687Z"
-                  fill="white"
+                  fill="black"
                 ></path>
               </svg>
             </a>
-            <span className="nav-number"></span>
             <ul className="dropdown-list">
               <li className="dropdown-list-item">Heavy Engineering</li>
               <li className="dropdown-list-item">Industrial Engineering</li>
@@ -57,11 +55,10 @@ const Header = () => {
               >
                 <path
                   d="M13.5321 2.42687L11.9991 0.921875L6.88906 5.99687L1.81406 0.921874L0.274062 2.42687L5.38406 7.53687L6.88906 9.07687L8.42906 7.53688L13.5391 2.42687Z"
-                  fill="white"
+                  fill="black"
                 ></path>
               </svg>
             </a>
-            <span className="nav-number"></span>
             <ul className="dropdown-list">
               <li className="dropdown-list-item">Engineering Services</li>
               <li className="dropdown-list-item">Digital Transformation</li>
@@ -76,13 +73,11 @@ const Header = () => {
             >
               Careers
             </a>
-            <span className="nav-number"></span>
           </li>
           <li className="nav-list-item">
             <a className="nav-anchor" href="#">
               Contact
             </a>
-            <span className="nav-number"></span>
           </li>
         </ul>
 
@@ -95,7 +90,7 @@ const Header = () => {
             />
             <span className="nav-search-icon">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <circle cx="9" cy="9" r="7" stroke="#009ca6" strokeWidth="2" />
+                <circle cx="9" cy="9" r="7" stroke="#000" strokeWidth="2" />
                 <line
                   x1="14.4142"
                   y1="14"

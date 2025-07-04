@@ -1,4 +1,8 @@
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import { useState, useEffect } from "react";
+import Slider from "react-slick";
 import Header from "../Header";
 import Footer from "../Footer";
 import "./index.css";
@@ -10,7 +14,7 @@ const bgSlides = [
   },
   {
     video: "/navbg2video.mp4",
-    heading: "Staffing and Consulting",
+    heading: "Staffing and Consulting ",
   },
   {
     video: "/navbg3video.mp4",
@@ -147,10 +151,16 @@ const zeroCards = [
 ];
 
 const Home = () => {
-  const [current, setCurrent] = useState(0);
   const [index, setIndex] = useState(0);
-  const visibleCount = 4;
-  const extendedSlides = [...slides, ...slides.slice(0, visibleCount)];
+  useEffect(() => {
+    const interval1 = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % bgSlides.length); // ✅ use bgSlides
+    }, 8000);
+
+    return () => {
+      clearInterval(interval1);
+    };
+  }, []);
 
   const nextSlide = () => {
     setIndex((prevIndex) => (prevIndex + 1) % bgSlides.length);
@@ -162,25 +172,31 @@ const Home = () => {
     );
   };
 
-  useEffect(() => {
-    const interval1 = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % bgSlides.length); // ✅ use bgSlides
-    }, 8000);
+  const carouselSettings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 3 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
 
-    const interval2 = setInterval(() => {
-      setCurrent((prev) => {
-        if (prev + visibleCount >= bgSlides.length) {
-          return 0;
-        }
-        return prev + visibleCount;
-      });
-    }, 2000);
-
-    return () => {
-      clearInterval(interval1);
-      clearInterval(interval2);
-    };
-  }, []);
+  // <div className="home-one-card" key={idx}>
+  // </div>
 
   return (
     <>
@@ -267,31 +283,26 @@ const Home = () => {
         </div>
 
         <div className="home-one">
-          <div
-            className="home-one-con"
-            style={{
-              transform: `translateX(-${(100 / visibleCount) * current}%)`,
-              transition: "transform 1s ease-in-out",
-              width: `${(extendedSlides.length / visibleCount) * 100}%`,
-            }}
-          >
-            {extendedSlides.map((slide, idx) => (
-              <div className="home-one-card" key={idx}>
-                <img src={slide.imageUrl} alt={slide.altText} />
-              </div>
+          <h1 className="home-zero-heading">WHO WE SERVE</h1>
+          <Slider {...carouselSettings}>
+            {slides.map((slide, idx) => (
+              <img key={idx} src={slide.imageUrl} alt={slide.altText} />
             ))}
-          </div>
+          </Slider>
         </div>
 
         <div className="home-two">
-          {cards.map((card) => (
-            <div
-              className="home-two-card"
-              style={{ backgroundImage: `url(${card.bgImgUrl})` }}
-            >
-              <h1 className="home-two-heading">{card.heading}</h1>
-            </div>
-          ))}
+          <h1 className="home-zero-heading">WHERE WE SERVE</h1>
+          <div className="home-two-con">
+            {cards.map((card) => (
+              <div
+                className="home-two-card"
+                style={{ backgroundImage: `url(${card.bgImgUrl})` }}
+              >
+                <h1 className="home-two-heading">{card.heading}</h1>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <Footer />
