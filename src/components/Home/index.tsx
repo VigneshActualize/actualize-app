@@ -3,6 +3,21 @@ import Header from "../Header";
 import Footer from "../Footer";
 import "./index.css";
 
+const bgSlides = [
+  {
+    video: "/navbg1video.mp4",
+    heading: "Digital Transformation",
+  },
+  {
+    video: "/navbg2video.mp4",
+    heading: "Staffing and Consulting",
+  },
+  {
+    video: "/navbg3video.mp4",
+    heading: "Engineering Services",
+  },
+];
+
 const slides = [
   {
     imageUrl:
@@ -63,43 +78,224 @@ const slides = [
   },
 ];
 
+const cards = [
+  {
+    bgImgUrl:
+      "https://actualize.co.in/wp-content/uploads/2023/05/7-1024x683.jpg",
+    heading: "Heavy Engineering",
+  },
+  {
+    bgImgUrl:
+      "https://uwm.edu/engineering/wp-content/uploads/sites/537/2021/07/CSI-image-A-750-x-500.png",
+    heading: "Industrial Engineering",
+  },
+  {
+    bgImgUrl:
+      "https://www.autotrainingcentre.com/wp-content/uploads/2021/01/Jan-28-careers-in-the-auto-industry.jpg",
+    heading: "Automotive Engineering",
+  },
+  {
+    bgImgUrl:
+      "https://www.stonewallco.com/hubfs/Process%20Equipment%20-%20PES.png",
+    heading: "Process Engineering",
+  },
+];
+
+const zeroCards = [
+  {
+    bgColor: "#e0f0ff",
+    borderColor: "#90caf9",
+    heading: "Engineering Services",
+    description:
+      "Providing comprehensive and innovative engineering solutions to meet the diverse needs of clients, optimizing efficiency and driving technological advancements.",
+    listItems: [
+      "Mechanical & Electrical Engineering Solutions",
+      "Product Design, Development & Value Engineering",
+      "Piping, Structural & HVAC Design",
+      "Electrical Design, PLC, HMI & SCADA Systems",
+    ],
+    textColor: "#2368e9",
+  },
+  {
+    bgColor: "#fff3d5",
+    borderColor: "#ffe0a3",
+    heading: "Digital Transformation",
+    description:
+      "Accelerating the digital transformation of industries by integrating advanced technologies, data-driven insights, and optimized processes to drive innovation, efficiency, and competitive advantage.",
+    listItems: [
+      "Enhance decision-making and productivity using data insights.",
+      "Tailored solutions for efficient data management.",
+      "Extract valuable insights to drive business growth.",
+      "Upgrade business intelligence and data systems.",
+    ],
+    textColor: "#ff6262",
+  },
+  {
+    bgColor: "#e6ffea",
+    borderColor: "#81c784",
+    heading: "Staffing and Consulting",
+    description:
+      "Empowering organizations through tailored staffing solutions and expert consulting services to optimize workforce performance, adapt to evolving market demands, and achieve sustainable growth",
+    listItems: [
+      "Provide expert staffing solutions to meet your business needs.",
+      "Offer specialized consulting for process optimization and efficiency.",
+      "Help businesses scale by sourcing top talent across various industries.",
+      "Offer customized recruitment strategies for long-term success.",
+    ],
+    textColor: "#2ccc61",
+  },
+];
+
 const Home = () => {
   const [current, setCurrent] = useState(0);
+  const [index, setIndex] = useState(0);
   const visibleCount = 4;
   const extendedSlides = [...slides, ...slides.slice(0, visibleCount)];
+
+  const nextSlide = () => {
+    setIndex((prevIndex) => (prevIndex + 1) % bgSlides.length);
+  };
+
+  const prevSlide = () => {
+    setIndex(
+      (prevIndex) => (prevIndex - 1 + bgSlides.length) % bgSlides.length
+    );
+  };
+
   useEffect(() => {
-    const interval = setInterval(() => {
+    const interval1 = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % bgSlides.length); // ✅ use bgSlides
+    }, 8000);
+
+    const interval2 = setInterval(() => {
       setCurrent((prev) => {
-        if (prev + visibleCount >= slides.length) {
+        if (prev + visibleCount >= bgSlides.length) {
           return 0;
         }
         return prev + visibleCount;
       });
-    }, 3000);
-    return () => clearInterval(interval);
+    }, 2000);
+
+    return () => {
+      clearInterval(interval1);
+      clearInterval(interval2);
+    };
   }, []);
 
   return (
-    <div className="div-container">
+    <>
       <Header />
-      <div className="home-two">
-        <div
-          className="home-two-con"
-          style={{
-            transform: `translateX(-${(100 / visibleCount) * current}%)`,
-            transition: "transform 1s ease-in-out",
-            width: `${(extendedSlides.length / visibleCount) * 100}%`,
-          }}
-        >
-          {extendedSlides.map((slide, idx) => (
-            <div className="home-two-card" key={idx}>
-              <img src={slide.imageUrl} alt={slide.altText} />
+      <div className="home-container">
+        <div className="nav-container">
+          <video
+            key={bgSlides[index].video}
+            className="background-video"
+            src={bgSlides[index].video}
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+
+          <div className="slider">
+            <div className="slide-heading-container">
+              <h1 className="slide-heading">{bgSlides[index].heading}</h1>
+              <button className="explore-btn">Explore</button>
+            </div>
+
+            <div className="slide-content">
+              <button className="slider-button" onClick={prevSlide}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button className="slider-button" onClick={nextSlide}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="home-zero">
+          <h1 className="home-zero-heading">WHAT WE SERVE</h1>
+          {zeroCards.map((card, idx) => (
+            <div
+              className="home-zero-card"
+              style={{ backgroundColor: `${card.bgColor}` }}
+              key={idx}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = card.borderColor;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "transparent";
+              }}
+            >
+              <h2 className="card-heading">{card.heading}</h2>
+              <p className="card-description">{card.description}</p>
+              <ul className="home-zero-list">
+                {card.listItems.map((item, index) => (
+                  <li
+                    key={index}
+                    className="home-zero-list-item"
+                    style={{ color: card.textColor }}
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="home-one">
+          <div
+            className="home-one-con"
+            style={{
+              transform: `translateX(-${(100 / visibleCount) * current}%)`,
+              transition: "transform 1s ease-in-out",
+              width: `${(extendedSlides.length / visibleCount) * 100}%`,
+            }}
+          >
+            {extendedSlides.map((slide, idx) => (
+              <div className="home-one-card" key={idx}>
+                <img src={slide.imageUrl} alt={slide.altText} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="home-two">
+          {cards.map((card) => (
+            <div
+              className="home-two-card"
+              style={{ backgroundImage: `url(${card.bgImgUrl})` }}
+            >
+              <h1 className="home-two-heading">{card.heading}</h1>
             </div>
           ))}
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

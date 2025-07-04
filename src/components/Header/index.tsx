@@ -1,51 +1,8 @@
-import { useState, useEffect } from "react";
 import "./index.css";
 
-const slides = [
-  {
-    video: "/navbg1video.mp4",
-    heading: "Digital Transformation",
-  },
-  {
-    video: "/navbg2video.mp4",
-    heading: "Staffing and Consulting Solutions",
-  },
-  {
-    video: "/navbg3video.mp4",
-    heading: "Engineering Services",
-  },
-];
-
 const Header = () => {
-  const [index, setIndex] = useState(0);
-
-  const nextSlide = () => {
-    setIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 8000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="nav-container">
-      <video
-        key={slides[index].video}
-        className="background-video"
-        src={slides[index].video}
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
-
+    <>
       <nav className="nav-bar">
         <a href="/" className="nav-logo-link">
           <img
@@ -90,13 +47,6 @@ const Header = () => {
 
           <li className="nav-list-item">
             <a className="nav-anchor" href="#">
-              Careers
-            </a>
-            <span className="nav-number"></span>
-          </li>
-
-          <li className="nav-list-item">
-            <a className="nav-anchor" href="#">
               Services
               <svg
                 className="desktop-nav-arrow"
@@ -119,6 +69,15 @@ const Header = () => {
             </ul>
           </li>
 
+          <li className="nav-list-item">
+            <a
+              className="nav-anchor"
+              href="https://actualize.zohorecruit.in/jobs/Careers"
+            >
+              Careers
+            </a>
+            <span className="nav-number"></span>
+          </li>
           <li className="nav-list-item">
             <a className="nav-anchor" href="#">
               Contact
@@ -151,44 +110,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-
-      <div className="slider">
-        <div className="slide-heading-container">
-          <h1 className="slide-heading">{slides[index].heading}</h1>
-        </div>
-
-        <div className="slide-content">
-          <button className="slider-button" onClick={prevSlide}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-          <button className="slider-button" onClick={nextSlide}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 
