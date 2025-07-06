@@ -229,9 +229,9 @@ const Home = () => {
 
   const carouselSettings = {
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 4,
     autoplay: true,
     autoplaySpeed: 2000,
     responsive: [
@@ -305,7 +305,10 @@ const Home = () => {
         </div>
 
         <div className="home-zero">
-          <h1 className="home-zero-heading" style={{ color: "#eb2128" }}>
+          <h1
+            className="home-zero-heading"
+            style={{ color: "#eb2128", margin: "0" }}
+          >
             WHAT WE SERVE
           </h1>
           {zeroCards.map((card, idx) => (
@@ -398,7 +401,9 @@ const Home = () => {
           <p>
             We bring your ideas to life with our expertise and industry-leading
             solutions, ensuring tangible outcomes that drive your business
-            towards success.
+            towards success. We bring your ideas to life with our expertise and
+            industry-leading solutions, ensuring tangible outcomes that drive
+            your business towards success.
           </p>
 
           <Link to="/about-us" style={{ textDecoration: "none" }}>
