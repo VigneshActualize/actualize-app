@@ -156,7 +156,7 @@ const Home = () => {
   const [countries, setCountries] = useState(0);
   const [customers, setCustomers] = useState(0);
   const [projects, setProjects] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false); // prevents re-animation
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   const aboutRef = useRef<HTMLDivElement>(null);
 
@@ -208,12 +208,12 @@ const Home = () => {
   };
 
   useEffect(() => {
-    const interval1 = setInterval(() => {
+    const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % bgSlides.length);
-    }, 8000);
+    }, 5000);
 
     return () => {
-      clearInterval(interval1);
+      clearInterval(interval);
     };
   }, []);
 
@@ -249,9 +249,6 @@ const Home = () => {
       },
     ],
   };
-
-  // <div className="home-one-card" key={idx}>
-  // </div>
 
   return (
     <>
@@ -397,12 +394,14 @@ const Home = () => {
           <h1 className="home-zero-heading" style={{ margin: "0px" }}>
             ABOUT US
           </h1>
+
           <p>
             We bring your ideas to life with our expertise and industry-leading
             solutions, ensuring tangible outcomes that drive your business
             towards success.
           </p>
-          <Link to='/about-us' style={{textDecoration : 'none'}}>
+
+          <Link to="/about-us" style={{ textDecoration: "none" }}>
             <button
               className="about-us-know-more-btn"
               style={{
@@ -422,12 +421,13 @@ const Home = () => {
               Know More
             </button>
           </Link>
+
           <div className="about-us-stats">
             <div
               className="about-us-stats-card"
-              style={{ backgroundColor: "#fff3d5", borderColor: "#ffe0a3" }}
+              style={{ backgroundColor: "#e0f0ff", borderColor: "#90caf9" }}
             >
-              <h1 style={{ color: "#eb2128" }}>
+              <h1 style={{ color: "#69bd45" }}>
                 {countries} <span>+</span>
               </h1>
 
@@ -435,9 +435,9 @@ const Home = () => {
             </div>
             <div
               className="about-us-stats-card"
-              style={{ backgroundColor: "e0f0ff", borderColor: "#90caf9" }}
+              style={{ backgroundColor: "e0f0ff", borderColor: "#ffe0a3" }}
             >
-              <h1 style={{ color: "#69bd45" }}>
+              <h1 style={{ color: "#eb2128" }}>
                 {customers} <span>+</span>
               </h1>
               <p>Customers</p>

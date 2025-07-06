@@ -1,4 +1,4 @@
-.about-us-section {
+.about {
   padding: 4% 8%;
   background: #f7f7f7;
   min-height: 70vh;
@@ -7,34 +7,35 @@
   align-items: center;
 }
 
-.about-us-content {
+.about__content {
   max-width: 900px;
   text-align: center;
   margin-bottom: 3rem;
 }
 
-.about-us-content h1 {
+.about__title {
   font-size: 3rem;
   color: #009ca6;
   font-family: "Courier New", Courier, monospace;
   margin-bottom: 1.5rem;
 }
 
-.about-us-content p {
+.about__paragraph {
   font-size: 1.2rem;
   color: #333;
   margin-bottom: 1.2rem;
   font-family: "Arial", sans-serif;
 }
 
-.about-us-stats {
+.about__stats {
   display: flex;
   gap: 2.5rem;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.about-us-stats-card {
+.about__stat-card {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
@@ -43,14 +44,14 @@
   min-width: 180px;
 }
 
-.about-us-stats-card h1 {
+.about__stat-value {
   font-size: 2.5rem;
   color: #ff6262;
   margin-bottom: 0.5rem;
   font-family: "Courier New", Courier, monospace;
 }
 
-.about-us-stats-card p {
+.about__stat-label {
   font-size: 1.1rem;
   color: #009ca6;
   font-weight: 600;

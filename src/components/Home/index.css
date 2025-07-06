@@ -249,7 +249,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  border-bottom: 2px solid #69bd45;
+  border-bottom: 2px solid #000;
 }
 
 .home-two-con {
@@ -312,22 +312,24 @@
 }
 
 .about-us-stats-card {
-  background-color: #e6ffea;
   padding: 1%;
   border-radius: 12px;
   border: 2px solid transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 25%;
-  height: 25%;
+  width: 30%;
+  height: 30%;
 }
 
 .about-us-stats-card h1 {
   font-size: 3rem;
   margin: 0;
+  margin-bottom: 5%;
 }
 
 .about-us-stats-card p {
   font-size: 1.5rem;
+  color: #000;
+  margin: 0;
 }
