@@ -1,0 +1,125 @@
+.contact-container {
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-header {
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #fff3d5;
+  border-radius: 10px;
+  border: 2px solid #ffe0a3;
+  margin-bottom: 5%;
+}
+
+.contact-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ff6262;
+  margin: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.contact-header p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1rem;
+  font-family: "Arial", sans-serif;
+}
+
+.contact-header-span {
+  font-size: 1.2rem;
+  color: #009ca6;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.contact-middle {
+  padding: 2%;
+  background: #e6ffea;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #81c784;
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #69bd45;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.contact-description {
+  font-size: 1.1rem;
+  color: #555;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #69bd45;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #ffffff;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #009ca6;
+  outline: none;
+}
+
+.contact-submit {
+  background: #69bd45;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 30%;
+  align-self: center;
+}
+
+.contact-submit:hover {
+  background-color: transparent;
+  color: #555;
+  border: 1px solid #69bd45;
+}

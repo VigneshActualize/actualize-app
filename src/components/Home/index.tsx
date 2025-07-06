@@ -1,11 +1,12 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import Slider from "react-slick";
 import Header from "../Header";
 import Footer from "../Footer";
 import "./index.css";
+import { Link } from "react-router-dom";
 
 const bgSlides = [
   {
@@ -152,9 +153,63 @@ const zeroCards = [
 
 const Home = () => {
   const [index, setIndex] = useState(0);
+  const [countries, setCountries] = useState(0);
+  const [customers, setCustomers] = useState(0);
+  const [projects, setProjects] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false); // prevents re-animation
+
+  const aboutRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting && !hasAnimated) {
+          animateNumbers();
+          setHasAnimated(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (aboutRef.current) {
+      observer.observe(aboutRef.current);
+    }
+
+    return () => {
+      if (aboutRef.current) observer.unobserve(aboutRef.current);
+    };
+  }, [hasAnimated]);
+
+  const animateNumbers = () => {
+    let countriesInterval = setInterval(() => {
+      setCountries((prev) => {
+        if (prev < 9) return prev + 1;
+        clearInterval(countriesInterval);
+        return prev;
+      });
+    }, 80);
+
+    let customersInterval = setInterval(() => {
+      setCustomers((prev) => {
+        if (prev < 80) return prev + 1;
+        clearInterval(customersInterval);
+        return prev;
+      });
+    }, 20);
+
+    let projectsInterval = setInterval(() => {
+      setProjects((prev) => {
+        if (prev < 10000) return prev + 100;
+        clearInterval(projectsInterval);
+        return prev;
+      });
+    }, 1);
+  };
+
   useEffect(() => {
     const interval1 = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % bgSlides.length); // ✅ use bgSlides
+      setIndex((prevIndex) => (prevIndex + 1) % bgSlides.length);
     }, 8000);
 
     return () => {
@@ -251,8 +306,11 @@ const Home = () => {
             </div>
           </div>
         </div>
+
         <div className="home-zero">
-          <h1 className="home-zero-heading">WHAT WE SERVE</h1>
+          <h1 className="home-zero-heading" style={{ color: "#eb2128" }}>
+            WHAT WE SERVE
+          </h1>
           {zeroCards.map((card, idx) => (
             <div
               className="home-zero-card"
@@ -283,7 +341,9 @@ const Home = () => {
         </div>
 
         <div className="home-one">
-          <h1 className="home-zero-heading">WHO WE SERVE</h1>
+          <h1 className="home-zero-heading" style={{ color: "#69bd45" }}>
+            WHO WE SERVE
+          </h1>
           <Slider {...carouselSettings}>
             {slides.map((slide, idx) => (
               <img key={idx} src={slide.imageUrl} alt={slide.altText} />
@@ -291,8 +351,36 @@ const Home = () => {
           </Slider>
         </div>
 
+        <div className="home-text">
+          <h1 className="home-zero-heading" style={{ color: "#2989ca" }}>
+            WHY WE SERVE
+          </h1>
+          <div className="home-text-content">
+            <p>
+              At Actualize, we believe that every individual and organization
+              holds untapped potential waiting to be realized. Our mission is to
+              serve as a catalyst for growth, transformation, and lasting
+              impact—helping our clients move from vision to reality. We’re not
+              just problem-solvers; we’re partners in progress, driven by a deep
+              purpose to empower others through meaningful innovation and
+              practical solutions.
+            </p>
+            <hr />
+            <p>
+              We serve because we care deeply about outcomes that matter.
+              Whether it's uplifting a community, accelerating a business, or
+              guiding personal development, we are motivated by the difference
+              we can make. Our work is rooted in integrity, collaboration, and a
+              shared commitment to creating a better future—for our clients, our
+              team, and the world around us.
+            </p>
+          </div>
+        </div>
+
         <div className="home-two">
-          <h1 className="home-zero-heading">WHERE WE SERVE</h1>
+          <h1 className="home-zero-heading" style={{ color: "#eb2128" }}>
+            WHERE WE SERVE
+          </h1>
           <div className="home-two-con">
             {cards.map((card) => (
               <div
@@ -302,6 +390,67 @@ const Home = () => {
                 <h1 className="home-two-heading">{card.heading}</h1>
               </div>
             ))}
+          </div>
+        </div>
+
+        <div className="about-us-section" id="about-us" ref={aboutRef}>
+          <h1 className="home-zero-heading" style={{ margin: "0px" }}>
+            ABOUT US
+          </h1>
+          <p>
+            We bring your ideas to life with our expertise and industry-leading
+            solutions, ensuring tangible outcomes that drive your business
+            towards success.
+          </p>
+          <Link to='/about-us' style={{textDecoration : 'none'}}>
+            <button
+              className="about-us-know-more-btn"
+              style={{
+                margin: "18px auto 28px auto",
+                display: "block",
+                background: "#2989ca",
+                color: "#fff",
+                border: "none",
+                borderRadius: "6px",
+                padding: "0.7rem 2.2rem",
+                fontWeight: 600,
+                fontSize: "1.1rem",
+                cursor: "pointer",
+                transition: "background 0.2s",
+              }}
+            >
+              Know More
+            </button>
+          </Link>
+          <div className="about-us-stats">
+            <div
+              className="about-us-stats-card"
+              style={{ backgroundColor: "#fff3d5", borderColor: "#ffe0a3" }}
+            >
+              <h1 style={{ color: "#eb2128" }}>
+                {countries} <span>+</span>
+              </h1>
+
+              <p>Countries Served</p>
+            </div>
+            <div
+              className="about-us-stats-card"
+              style={{ backgroundColor: "e0f0ff", borderColor: "#90caf9" }}
+            >
+              <h1 style={{ color: "#69bd45" }}>
+                {customers} <span>+</span>
+              </h1>
+              <p>Customers</p>
+            </div>
+            <div
+              className="about-us-stats-card"
+              style={{ backgroundColor: "#e6ffea", borderColor: "#81c784" }}
+            >
+              <h1 style={{ color: "#2989ca" }}>
+                {projects.toLocaleString()} <span>+</span>
+              </h1>
+              <p>Projects Delivered</p>
+            </div>
           </div>
         </div>
       </div>

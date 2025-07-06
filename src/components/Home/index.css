@@ -1,3 +1,4 @@
+/* Nav Section */
 .nav-container {
   position: relative;
   overflow: hidden;
@@ -93,20 +94,23 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* Home Zero Section or  */
+
 .home-zero {
   padding: 4%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-bottom: 2px solid #69bd45;
 }
 
 .home-zero-heading {
   font-size: 3rem;
-  color: #222;
   font-weight: 1000;
   font-family: "Roboto", sans-serif;
   text-align: center;
+  color: #000;
 }
 
 .home-zero-card {
@@ -161,6 +165,8 @@
   transform: translateY(-2px);
 }
 
+/* Home One Section */
+
 .home-one {
   width: 100%;
   overflow: hidden;
@@ -168,6 +174,7 @@
   padding: 4%;
   padding-top: 0;
   padding-bottom: 0;
+  border-bottom: 2px solid #2989ca;
 }
 
 .home-one-con {
@@ -183,20 +190,6 @@
   will-change: transform;
   width: fit-content;
 }
-/* 
-.home-one-card {
-  flex: 0 0 25%;
-  box-sizing: border-box; 
-  padding: 1rem;
-  background: white;
-  border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-} */
 
 .slick-track {
   display: flex;
@@ -219,6 +212,35 @@
   margin: 0 -12px;
 }
 
+/* Home Text Section */
+.home-text {
+  width: 100%;
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid #eb2128;
+}
+
+.home-text-content {
+  width: 100%;
+  padding: 0 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: #2989ca 5px solid;
+}
+
+.home-text-content p {
+  font-size: 1rem;
+  color: #222;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Home Two Section */
+
 .home-two {
   padding: 4%;
   padding-top: 0;
@@ -227,6 +249,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  border-bottom: 2px solid #69bd45;
 }
 
 .home-two-con {
@@ -260,4 +283,51 @@
   font-weight: bold;
   text-align: center;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* About Us Section */
+
+.about-us-section {
+  padding: 4%;
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.about-us-section p {
+  font-size: 1.5rem;
+  color: #555;
+  font-weight: 1000;
+  margin-bottom: 1.5rem;
+  line-height: "1.8";
+}
+
+.about-us-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: "center";
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.about-us-stats-card {
+  background-color: #e6ffea;
+  padding: 1%;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  height: 25%;
+}
+
+.about-us-stats-card h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.about-us-stats-card p {
+  font-size: 1.5rem;
 }
