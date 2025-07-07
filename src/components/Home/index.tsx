@@ -382,9 +382,10 @@ const Home = () => {
             WHERE WE SERVE
           </h1>
           <div className="home-two-con">
-            {cards.map((card) => (
+            {cards.map((card, idx) => (
               <div
                 className="home-two-card"
+                key={idx}
                 style={{ backgroundImage: `url(${card.bgImgUrl})` }}
               >
                 <h1 className="home-two-heading">{card.heading}</h1>
@@ -440,7 +441,7 @@ const Home = () => {
             </div>
             <div
               className="about-us-stats-card"
-              style={{ backgroundColor: "e0f0ff", borderColor: "#ffe0a3" }}
+              style={{ backgroundColor: "#fff3d5", borderColor: "#ffe0a3" }}
             >
               <h1 style={{ color: "#eb2128" }}>
                 {customers} <span>+</span>

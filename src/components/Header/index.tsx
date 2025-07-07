@@ -16,7 +16,7 @@ const Header = () => {
 
         <ul className="nav-links">
           <li className="nav-list-item">
-            <a className="nav-anchor" href="#about-us">
+            <a className="nav-anchor" href="/#about-us">
               About
             </a>
           </li>
@@ -41,7 +41,12 @@ const Header = () => {
               <li className="dropdown-list-item">Heavy Engineering</li>
               <li className="dropdown-list-item">Industrial Engineering</li>
               <li className="dropdown-list-item">Automotive Engineering</li>
-              <li className="dropdown-list-item">Process Engineering</li>
+              <li
+                className="dropdown-list-item"
+                style={{ borderBottom: "none" }}
+              >
+                Process Engineering
+              </li>
             </ul>
           </li>
 
@@ -64,7 +69,12 @@ const Header = () => {
             <ul className="dropdown-list">
               <li className="dropdown-list-item">Engineering Services</li>
               <li className="dropdown-list-item">Digital Transformation</li>
-              <li className="dropdown-list-item">Staffing and Consulting</li>
+              <li
+                className="dropdown-list-item"
+                style={{ borderBottom: "none" }}
+              >
+                Staffing and Consulting
+              </li>
             </ul>
           </li>
 
@@ -76,13 +86,11 @@ const Header = () => {
               Careers
             </a>
           </li>
-          <Link to="/contact" className="nav-list-item">
-            <li className="nav-list-item">
-              <a className="nav-anchor" href="#">
-                Contact
-              </a>
-            </li>
-          </Link>
+          <li className="nav-list-item">
+            <Link to="/contact" className="nav-anchor">
+              Contact
+            </Link>
+          </li>
         </ul>
 
         <div className="nav-list-item nav-search-item">
@@ -93,14 +101,14 @@ const Header = () => {
               placeholder="Search..."
             />
             <span className="nav-search-icon">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <circle cx="9" cy="9" r="7" stroke="#000" strokeWidth="2" />
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <circle cx="7" cy="7" r="5" stroke="#000" strokeWidth="2" />
                 <line
-                  x1="14.4142"
-                  y1="14"
-                  x2="18"
-                  y2="17.5858"
-                  stroke="#009ca6"
+                  x1="11.4142"
+                  y1="11"
+                  x2="14"
+                  y2="13.5858"
+                  stroke="#000"
                   strokeWidth="2"
                   strokeLinecap="round"
                 />

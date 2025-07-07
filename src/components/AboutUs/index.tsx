@@ -1,8 +1,13 @@
-import "./index.css";
+import { useEffect } from "react";
 import Header from "../Header";
 import Footer from "../Footer";
+import "./index.css";
 
 const AboutUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Header />
